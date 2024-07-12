@@ -1,5 +1,5 @@
 import Form from "./components/Form";
-import User from "./components/User";
+import UserRender from "./components/User";
 import { useUsersStore } from "./store/usersStore";
 
 export default function App() {
@@ -22,7 +22,7 @@ export default function App() {
           <h2 className="h2-info">There are no users for the moment</h2>
         ) : (
           users.map((user) => {
-            return <User user={user} />;
+            return <UserRender user={user} />;
           })
         )}
       </div>

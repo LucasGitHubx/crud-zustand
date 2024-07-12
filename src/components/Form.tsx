@@ -12,7 +12,7 @@ export default function Form() {
   const [lastNameError, setLastNameError] = useState<boolean>(false);
   const [ageError, setAgeError] = useState<boolean>(false);
 
-  const formRef = useRef(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
