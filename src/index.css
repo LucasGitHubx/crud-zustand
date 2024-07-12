@@ -1,161 +1,226 @@
-@import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: system-ui;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui;
 }
-#root{
-    min-height: 100vh;
-    min-width: 100vw;
+#root {
+  min-height: 100vh;
+  min-width: 100vw;
 }
-#root .App{
-    width: 100%;
-    min-width: 320px;
+#root .App {
+  width: 100%;
+  min-width: 320px;
 
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
-.App h2.h2-info{
-    text-align: center;
+.App h2.h2-info {
+  text-align: center;
 }
-header{
-    padding: 1rem;
+header {
+  padding: 1rem;
 
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
-h1{
-    width: fit-content;
-    cursor: pointer;
-    text-align: center;
+h1 {
+  width: fit-content;
+  cursor: pointer;
+  text-align: center;
 }
-h1 span{
-    font-family: "Playwrite CU", cursive;
-    letter-spacing: 4px;
-    color: rgb(0, 81, 255);
+h1 span {
+  font-family: "Playwrite CU", cursive;
+  letter-spacing: 4px;
+  color: rgb(0, 81, 255);
 }
-h1:hover{
-    animation-name: h1-hover;
-    animation-duration: 1000ms;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+h1:hover {
+  animation-name: h1-hover;
+  animation-duration: 1000ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 @keyframes h1-hover {
-    0%{
-        transform: translateY(10px);
-    }
-    100%{
-        transform: translateY(0px);
-    }
+  0% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
-form.add-form{
-    margin: 0 auto;
-    width: 80%;
-    min-width: 300px;
-    max-width: 425px;
+form.add-form {
+  margin: 0 auto;
+  width: 80%;
+  min-width: 300px;
+  max-width: 425px;
 
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
-form.add-form input{
-    padding: 8px 4px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: none;
+form.add-form input {
+  padding: 8px 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
 
-    transition: .5s;
+  transition: 0.5s;
 }
-form.add-form input:focus{
-    border: 1px solid black;
+form.add-form input:focus {
+  border: 1px solid black;
 }
-form.add-form input.error{
-    border: 1px solid red;
+form.add-form input.error {
+  border: 1px solid red;
 }
-form.add-form label{
-    position: relative;
-    top: .5rem;
-    font-size: 1.1rem;
+form.add-form label {
+  position: relative;
+  top: 0.5rem;
+  font-size: 1.1rem;
 }
 form.add-form label.error {
-    color: red;
+  color: red;
 }
-form.add-form button{
-    cursor: pointer;
-    margin: 1rem auto;
-    padding: 6px 10px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    color: white;
-    background-color: rgb(0, 81, 255);
-    
-    transition: .5s;
+form.add-form button {
+  cursor: pointer;
+  margin: 1rem auto;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: white;
+  background-color: rgb(0, 81, 255);
+
+  transition: 0.5s;
 }
-form.add-form button:hover{
-    opacity: .8;
+form.add-form button:hover {
+  opacity: 0.8;
 }
-form.add-form button:active{
-    opacity: .6;
+form.add-form button:active {
+  opacity: 0.6;
 }
 
-.App .users{
-    padding: .5rem;
-    margin-bottom: 2rem;
-    width: 80%;
-    height: 400px;
-    max-width: 450px;
-    min-width: 320px;
-    margin: 0 auto;
-    overflow: auto;
+.App .users {
+  padding: 0.5rem;
+  margin-bottom: 2rem;
+  width: 80%;
+  height: 400px;
+  max-width: 450px;
+  min-width: 320px;
+  margin: 0 auto;
+  overflow: auto;
 
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
-.users .user{
-    padding: .5rem;
-    box-shadow: 4px 3px 6px rgb(199, 199, 199);
-    border-radius: 8px;
-    border: 1px solid rgb(204, 204, 204);
+.users .user {
+  padding: 0.5rem;
+  box-shadow: 4px 3px 6px rgb(199, 199, 199);
+  border-radius: 8px;
+  border: 1px solid rgb(204, 204, 204);
+  overflow: hidden;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.user .buttons{
-    width: 35%;
-    display: flex;
-    gap: .5rem;
+.user .buttons {
+  width: 35%;
+  display: flex;
+  gap: 0.5rem;
 
-    flex-wrap: wrap;
-    justify-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.buttons button{
-    cursor: pointer;
-    padding: 8px;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-weight: bold;
+.buttons button {
+  cursor: pointer;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
 
-    transition: .5s;
+  transition: 0.5s;
 }
-button.delete{
-    background-color: rgb(255, 45, 0);
+button.delete {
+  background-color: rgb(255, 45, 0);
 }
-button.update{
-    background-color: rgb(0, 89, 255);
+button.update {
+  background-color: rgb(0, 89, 255);
+}
+.buttons button:hover {
+  opacity: 0.8;
+}
+.buttons button:active {
+  opacity: 0.6;
+}
+.user div.modal {
+  display: none;
+  width: 80%;
+  max-width: 400px;
+  min-width: 300px;
+  height: fit-content;
+  background-color: white;
+  box-shadow: 4px 1px 10px rgb(197, 196, 196);
+  border-radius: 8px;
+
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 2rem auto;
+}
+.user div.modal.active {
+  display: block;
 }
 
-.buttons button:hover{
-    opacity: .8;
+.user div.modal form {
+  margin: 0 auto;
+  width: 280px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
-.buttons button:active{
-    opacity: .6;
+.user div.modal form input {
+  padding: 8px 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+
+  transition: 0.5s;
+}
+.user div.modal form input:focus {
+  border: 1px solid black;
+}
+.user div.modal form label {
+  position: relative;
+  top: 0.5rem;
+  font-size: 1.1rem;
+}
+.user div.modal form button {
+  width: 100%;
+  cursor: pointer;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: white;
+  background-color: rgb(0, 81, 255);
+
+  transition: 0.5s;
+}
+.user div.modal form .buttons {
+  margin: 1rem auto;
+  display: flex;
+  gap: 1rem;
+}
+.user div.modal form .buttons button.cancel-button {
+  background-color: red;
 }

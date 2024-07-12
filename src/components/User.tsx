@@ -1,6 +1,6 @@
 import { useUsersStore } from "../store/usersStore";
-import { useState } from "react";
-import { User, UserID } from "../types";
+import { useState, useEffect, useRef } from "react";
+import { UserID, User } from "../types";
 
 interface Props {
   user: User;
@@ -8,11 +8,44 @@ interface Props {
 
 export default function User({ user }: Props) {
   const deleteUser = useUsersStore((state) => state.deleteUser);
+  const updateUser = useUsersStore((state) => state.updateUser);
+
+  const [activeModal, setActiveModal] = useState(false);
+
+  const formRef = useRef(null);
 
   function handleDelete(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     e.preventDefault();
 
     deleteUser(user.userID);
+  }
+
+  function handleActiveUpdate(
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) {
+    e.preventDefault();
+
+    setActiveModal(!activeModal);
+  }
+
+  function handleUpdate(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    e.preventDefault();
+
+    if (formRef !== null) {
+      const name = formRef.current.name.value;
+      const lastname = formRef.current.lastname.value;
+      const age = formRef.current.age.value;
+
+      const updatedUser: User = {
+        userID: user.userID,
+        userName: name + " ",
+        userlastName: lastname,
+        userAge: age,
+      };
+
+      updateUser(updatedUser, user.userID);
+      formRef.current.reset();
+    }
   }
 
   return (
@@ -29,7 +62,31 @@ export default function User({ user }: Props) {
         <button className="delete" onClick={handleDelete}>
           Delete
         </button>
-        <button className="update">Update</button>
+        <button className="update" onClick={handleActiveUpdate}>
+          Update
+        </button>
+      </div>
+      <div className={activeModal ? "modal active" : "modal"}>
+        <form ref={formRef} onSubmit={(e) => e.preventDefault()}>
+          <label>Insert name</label>
+          <input type="text" name="name" placeholder="E.g Rodrigo" />
+
+          <label>Insert lastname</label>
+          <input type="text" name="lastname" placeholder="E.g Johnson" />
+
+          <label>Insert age</label>
+          <input type="number" name="age" />
+
+          <div className="buttons">
+            <button onClick={handleUpdate}>Update</button>
+            <button
+              onClick={(e) => setActiveModal(false)}
+              className="cancel-button"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
